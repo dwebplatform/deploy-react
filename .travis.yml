@@ -1,0 +1,10 @@
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - docker build -t abysswatchers/deploy-react -f Dockerfile.dev .
+
+script:
+  - docker run abysswatchers/deploy-react npm run test -- --coverage
